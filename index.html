@@ -20,6 +20,8 @@
             --color-accent-hover: #0D9488;
             --color-border: #E7E5E4;
             --color-card-bg: #FFFFFF;
+            --color-hero-gradient-start: #F0FDFA;
+            --color-hero-gradient-end: #FAFAF9;
             --font-display: 'Fraunces', Georgia, serif;
             --font-body: 'DM Sans', -apple-system, sans-serif;
         }
@@ -58,6 +60,18 @@
         .hero {
             padding-top: 100px;
             padding-bottom: 60px;
+            background: linear-gradient(180deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), #14B8A6, #2DD4BF);
         }
 
         .hero-content {
@@ -75,6 +89,9 @@
             margin-bottom: 32px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             animation: fadeIn 0.8s ease-out;
+            border: 4px solid white;
+            outline: 3px solid var(--color-accent);
+            outline-offset: 4px;
         }
 
         .hero h1 {
@@ -160,6 +177,20 @@
             font-size: 1.75rem;
             font-weight: 600;
             letter-spacing: -0.01em;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), #14B8A6);
+            border-radius: 2px;
         }
 
         /* Experience Section */
@@ -398,7 +429,6 @@
                 <h2>Experience</h2>
             </div>
             <div class="logo-grid">
-                <!-- Replace these with actual logo images when available -->
                 <div class="logo-item">
                     <img src="https://logo.clearbit.com/alarm.com" alt="Alarm.com" onerror="this.parentElement.innerHTML='<span class=\'text-logo\'>Alarm.com</span>'">
                 </div>
@@ -408,8 +438,6 @@
                 <div class="logo-item">
                     <img src="https://logo.clearbit.com/cmu.edu" alt="Carnegie Mellon University" onerror="this.parentElement.innerHTML='<span class=\'text-logo\'>CMU Tepper</span>'">
                 </div>
-                <div class="logo-item text-logo">Scitren</div>
-                <div class="logo-item text-logo">First Medicine</div>
                 <div class="logo-item">
                     <img src="https://logo.clearbit.com/virginia.edu" alt="University of Virginia" onerror="this.parentElement.innerHTML='<span class=\'text-logo\'>UVA</span>'">
                 </div>
